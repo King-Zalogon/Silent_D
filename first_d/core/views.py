@@ -13,3 +13,18 @@ def sub_url(request):
                             <li> url </li>
                         </ul>
                         """)
+
+def npc_name(request, npc_name):
+    return HttpResponse(
+        f"""
+        <h1> Welcome to {npc_name}'s place</h1>
+        <p> This character's web page</p>
+        """
+    )
+
+def birth_year(request, year):
+    return HttpResponse(
+        f"""
+        <h1>The birth year was {year}</h1>
+        """
+    )
