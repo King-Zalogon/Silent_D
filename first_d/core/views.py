@@ -9,7 +9,8 @@ def index(request):
 def npc_list(request):
     context = {
         "user_name": "young Padawan",
-        'today': datetime.now()
+        "today": datetime.now(),
+        "sponsor": True,
     }
 
     return render(request, 'npc_list.html', context)
