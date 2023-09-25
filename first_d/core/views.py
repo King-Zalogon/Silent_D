@@ -1,12 +1,16 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from datetime import datetime
 
 # Create your views here.
 def index(request):
     return render(request,'index.html')
 
 def npc_list(request):
-    context = {}
+    context = {
+        "user_name": "young Padawan",
+        'today': datetime.now()
+    }
 
     return render(request, 'npc_list.html', context)
 
@@ -21,6 +25,6 @@ def npc_name(request, npc_name):
 def birth_year(request, year):
     return HttpResponse(
         f"""
-        <h1>The birth year was {year}</h1>
+        <h1>The birth year was {datetime.year}</h1>
         """
     )
