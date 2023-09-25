@@ -5,14 +5,10 @@ from django.http import HttpResponse
 def index(request):
     return render(request,'index.html')
 
-def sub_url(request):
-    return HttpResponse("""
-                        <ul>
-                            <li> I'm </li>
-                            <li> a sub </li>
-                            <li> url </li>
-                        </ul>
-                        """)
+def npc_list(request):
+    context = {}
+
+    return render(request, 'npc_list.html', context)
 
 def npc_name(request, npc_name):
     return HttpResponse(
