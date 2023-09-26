@@ -4,7 +4,7 @@ from datetime import datetime
 
 # Create your views here.
 def index(request):
-    return render(request,'index.html')
+    return render(request,'core/index.html')
 
 def npc_list(request):
 
@@ -18,7 +18,7 @@ def npc_list(request):
         "list_of_npc": my_list,
     }
 
-    return render(request, 'npc_list.html', context)
+    return render(request, 'core/npc_list.html', context)
 
 def npc_name(request, npc_name):
     return HttpResponse(
