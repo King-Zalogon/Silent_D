@@ -29,12 +29,20 @@
     <main>
         <h3>Characters: </h3>
         <ul>
-            <li>
-                <p>Name: </p>
-                <p>Year: </p>
-                <p>System: </p>
-            </li>
+            {% for npc in list_of_npc %}
+                <li>
+                    <p>Name: {{npc}}</p>
+                    <p>Year: </p>
+                    <p>System: </p>
+                </li>
+            {% endfor %}
         </ul>
+        
+        {% if npc_count > 0 %}
+            <p> Number of characters: {{npc_count}}</p>
+        {% else %}
+            <p> No characters on base </p>
+        {% endif %}
 
     </main>
     <footer>

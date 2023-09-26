@@ -11,6 +11,8 @@ def npc_list(request):
         "user_name": "young Padawan",
         "today": datetime.now(),
         "sponsor": True,
+        "npc_count": 20,
+        "list_of_npc": ['Gin', 'Ramirez', 'Crom', 'Ardevaas', 'Krunar']
     }
 
     return render(request, 'npc_list.html', context)
