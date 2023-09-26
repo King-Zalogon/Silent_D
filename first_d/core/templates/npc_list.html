@@ -35,13 +35,15 @@
                     <p>Year: </p>
                     <p>System: </p>
                 </li>
+            {% empty %}
+                <p> No characters in place </p>    
             {% endfor %}
         </ul>
         
         {% if npc_count > 0 %}
             <p> Number of characters: {{npc_count}}</p>
         {% else %}
-            <p> No characters on base </p>
+            <p> No characters registered </p>
         {% endif %}
 
     </main>

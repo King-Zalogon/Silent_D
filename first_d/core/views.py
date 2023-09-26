@@ -7,12 +7,15 @@ def index(request):
     return render(request,'index.html')
 
 def npc_list(request):
+
+    my_list = ['Gin', 'Ramirez', 'Crom', 'Ardevaas', 'Krunar']
+
     context = {
         "user_name": "young Padawan",
         "today": datetime.now(),
         "sponsor": True,
-        "npc_count": 20,
-        "list_of_npc": ['Gin', 'Ramirez', 'Crom', 'Ardevaas', 'Krunar']
+        "npc_count": len(my_list),
+        "list_of_npc": my_list,
     }
 
     return render(request, 'npc_list.html', context)
