@@ -11,7 +11,7 @@ def npc_list(request):
     my_list = ['Gin', 'Ramirez', 'Crom', 'Ardevaas', 'Krunar']
 
     context = {
-        "user_name": "young Padawan",
+        "user_name": "young padawan",
         "today": datetime.now(),
         "sponsor": True,
         "npc_count": len(my_list),
