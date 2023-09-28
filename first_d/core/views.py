@@ -34,3 +34,10 @@ def birth_year(request, year):
         <h1>The birth year was {datetime.year}</h1>
         """
     )
+
+def contact(request):
+    context = {
+
+    }
+
+    return render(request, "core/contact.html", context)
