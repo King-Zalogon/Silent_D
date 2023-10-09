@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from datetime import datetime
+from .forms import ContactForm
 
 # Create your views here.
 def index(request):
@@ -36,7 +37,11 @@ def birth_year(request, year):
     )
 
 def contact(request):
+
+    form = ContactForm()
+
     context = {
+        'contact_form': form,
 
     }
 
