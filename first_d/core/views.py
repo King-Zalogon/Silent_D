@@ -38,11 +38,12 @@ def birth_year(request, year):
 
 def contact(request):
 
+    print(request.POST)
+
     form = ContactForm()
 
     context = {
         'contact_form': form,
-
     }
 
     return render(request, "core/contact.html", context)
