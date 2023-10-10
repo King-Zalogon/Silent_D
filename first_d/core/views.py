@@ -1,8 +1,10 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.urls import reverse
+from django.contrib import messages
 from datetime import datetime
 from .forms import ContactForm
+
 
 # Create your views here.
 def index(request):
@@ -47,6 +49,7 @@ def contact(request):
         # Then I can validate the data
         if form.is_valid():
             # then we register the data
+            messages.info(request, message="Thank you for contacting us!")
             return redirect(reverse("npc_list"))
 
     else:
