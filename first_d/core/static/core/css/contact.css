@@ -1,10 +1,10 @@
-.contact {
+.red_background {
+    background-color: red;
+}
+
+/* .contact {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     color: darkmagenta;
-}
-
-p {
-    background-color: aquamarine;
-}
+} */

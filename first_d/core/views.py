@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
+from django.urls import reverse
 from datetime import datetime
 from .forms import ContactForm
 
@@ -38,15 +39,21 @@ def birth_year(request, year):
 
 def contact(request):
 
-    print(request.POST)
+    # print(request.POST)
+
     if request.method == "POST":
         form = ContactForm(request.POST)
+
+        # Then I can validate the data
+        if form.is_valid():
+            # then we register the data
+            return redirect(reverse("npc_list"))
 
     else:
         form = ContactForm()
 
     context = {
-        'contact_form': form,
+        "contact_form": form,
     }
 
     return render(request, "core/contact.html", context)
