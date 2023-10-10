@@ -1,0 +1,10 @@
+.contact {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    color: darkmagenta;
+}
+
+p {
+    background-color: aquamarine;
+}

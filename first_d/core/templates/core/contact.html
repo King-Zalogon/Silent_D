@@ -15,7 +15,9 @@
         <!-- <input type="Some Text"> -->
         <!-- <input type="submit" value="Save"> -->
         {% csrf_token %} <!-- required for a POST -->
-        {{ contact_form.as_p}} <!-- the .as_p treats each item of the form a being inside a <p> </p> -->
+        <div class="contact">
+            {{ contact_form.as_p}} <!-- the .as_p treats each item of the form a being inside a <p> </p> -->
+        </div>
         <input type="submit" value="Contact us!">
     </form>
 

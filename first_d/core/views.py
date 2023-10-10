@@ -39,7 +39,7 @@ def birth_year(request, year):
 def contact(request):
 
     print(request.POST)
-
+    
     form = ContactForm()
 
     context = {
