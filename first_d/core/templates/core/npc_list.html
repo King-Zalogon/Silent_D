@@ -24,9 +24,12 @@
         {% for npc in list_of_npc %}
             <li>
                 {% filter title %}
-                    <p>Name: {{npc | upper}}</p>
-                    <p>Year: </p>
-                    <p>System: </p>
+                    <p>Name: {{npc.name | upper}}</p>
+                    <p>Concept: {{npc.concept}}</p>
+                    <p>System: {{npc.rules_system}}</p>
+                    <p>Level or Exp: {{npc.growth}}</p>
+                    <p>Age: {{npc.age}}</p>
+                    <p>Author: {{npc.creator}}</p>
                 {% endfilter %}
             </li>
         {% empty %}
