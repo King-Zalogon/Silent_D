@@ -5,6 +5,8 @@ from django.db import models
 class RulesSystem(models.Model):
     system_name = models.CharField(max_length=10, verbose_name="System", default='TBD', null=True)
 
+class GameMaster(models.Model):
+    name = models.CharField(max_length=15, verbose_name="GM Name")
 
 class Chronicle(models.Model):
     title = models.CharField(max_length=30, verbose_name="Chronicle's title")
@@ -28,3 +30,5 @@ class Character(models.Model):
     portrait = models.URLField(verbose_name="Portraits' URL", null=True)
     chronicle = models.ForeignKey(Chronicle, on_delete=models.CASCADE, null=True)
 
+class GameMaster(models.Model):
+    name = models.CharField(max_length=15, verbose_name="GM Name")
