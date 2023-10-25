@@ -12,21 +12,21 @@ class ContactForm(forms.Form):
     
     concept = forms.CharField(max_length=30, label="Concept: ")
 
-    rules_system = forms.CharField(max_length=10, label="System: ")
+    rules_system = forms.CharField(max_length=10, label="System: ", required=False)
 
-    growth = forms.IntegerField(label="Current level or Exp: ")
+    growth = forms.IntegerField(label="Current level or Exp: ", required=False)
     
-    age = forms.IntegerField(label="Age (real o apparent): ")
+    age = forms.IntegerField(label="Age (real o apparent): ", required=False)
 
-    owner_name = forms.CharField(max_length=15, label="Creator's name: ", widget=BlueBackgroundTextInput, required=True)
+    owner_name = forms.CharField(max_length=15, label="Creator's name: ", widget=BlueBackgroundTextInput, required=False)
 
-    is_player = forms.BooleanField(label="Is a player's character? ")
+    is_player = forms.BooleanField(label="Is a player's character? ", required=False)
 
-    alive = forms.BooleanField(label="Is alive? ")
+    alive = forms.BooleanField(label="Is alive? ", required=False)
 
-    bio = forms.CharField(widget=forms.Textarea, label="Biography: ")
+    bio = forms.CharField(widget=forms.Textarea, label="Biography: ", required=False)
 
-    portrait = forms.URLField(label = "Portrait's URL: ")
+    portrait = forms.URLField(label = "Portrait's URL: ", required=False)
 
     def clean_age(self):
         if self.cleaned_data["age"] < 0:
