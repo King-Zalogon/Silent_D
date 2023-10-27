@@ -55,10 +55,10 @@ def contact(request):
             char = Character(
                     name = form.cleaned_data["char_name"],
                     concept = form.cleaned_data["concept"],
-                    rules_system = form.cleaned_data["rules_system"],
+                    # rules_system = form.cleaned_data["rules_system"],
                     growth = form.cleaned_data["growth"],
                     age = form.cleaned_data["age"],
-                    creator = form.cleaned_data["owner_name"],
+                    # creator = form.cleaned_data["owner_name"],
                     is_player = form.cleaned_data["is_player"],
                     alive = form.cleaned_data["alive"],
                     bio = form.cleaned_data["bio"],

@@ -12,13 +12,13 @@ class ContactForm(forms.Form):
     
     concept = forms.CharField(max_length=30, label="Concept: ")
 
-    rules_system = forms.CharField(max_length=10, label="System: ", required=False)
+    # rules_system = forms.CharField(max_length=10, label="System: ", required=False)
 
     growth = forms.IntegerField(label="Current level or Exp: ", required=False)
     
     age = forms.IntegerField(label="Age (real o apparent): ", required=False)
 
-    owner_name = forms.CharField(max_length=15, label="Creator's name: ", widget=BlueBackgroundTextInput, required=False)
+    # owner_name = forms.CharField(max_length=15, label="Creator's name: ", widget=BlueBackgroundTextInput, required=False)
 
     is_player = forms.BooleanField(label="Is a player's character? ", required=False)
 
