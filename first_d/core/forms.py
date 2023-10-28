@@ -7,7 +7,7 @@ class BlueBackgroundTextInput(forms.TextInput):
         CSS = {'all':('core/css/blue_background_text_input.css',)}
 
 
-class ContactForm(forms.Form):
+class CharacterResgister(forms.Form):
     char_name = forms.CharField(max_length=15, label="Character name: ", widget=forms.TextInput(attrs={'class':'red_background'}), required=True)
     
     concept = forms.CharField(max_length=30, label="Concept: ")

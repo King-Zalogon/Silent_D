@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from django.urls import reverse
 from django.contrib import messages
 from datetime import datetime
-from .forms import ContactForm
+from .forms import CharacterResgister
 from .models import Character
 
 
@@ -45,7 +45,7 @@ def contact(request):
     # print(request.POST)
 
     if request.method == "POST":
-        form = ContactForm(request.POST)
+        form = CharacterResgister(request.POST)
 
         # Then I can validate the data
         if form.is_valid():
@@ -71,10 +71,10 @@ def contact(request):
             return redirect(reverse("npc_list"))
 
     else:
-        form = ContactForm()
+        form = CharacterResgister()
 
     context = {
-        "contact_form": form,
+        "char_form": form,
     }
 
-    return render(request, "core/contact.html", context)
+    return render(request, "core/char_form.html", context)
