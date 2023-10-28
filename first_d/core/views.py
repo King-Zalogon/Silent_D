@@ -2,9 +2,11 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.urls import reverse
 from django.contrib import messages
+from django.views.generic.edit import CreateView
+from django.views.generic.list import ListView
 from datetime import datetime
 from .forms import CharacterResgister
-from .models import Character
+from .models import Character, RulesSystem
 
 
 # Create your views here.
@@ -78,3 +80,20 @@ def contact(request):
     }
 
     return render(request, "core/char_form.html", context)
+
+
+class RulesSystemCreateView(CreateView):
+    model = RulesSystem
+    context_object_name = 'rules_systems_form'
+    template_name = 'core/rules_systems_form.html'
+    # success_url = 'rules_systems_list'
+    fields = '__all__'
+
+
+class RulesSystemListView(ListView):
+    model = RulesSystem
+    context_object_name = "rules_systems_list"
+    template_name = 'core/rules_systems_list.html'
+    ordering = ['system_name']
+    systems_count = 0
+

@@ -7,5 +7,7 @@ urlpatterns = [
     path('npc_list/', views.npc_list, name='npc_list'),
     path('npc_list/<str:npc_name>/', views.npc_name, name='npc_name'),
     re_path(r'npc_list/birth/(?P<year>[0-9]{4})/$', views.birth_year, name='birth'),
-    
+    path('rules_systems_form', views.RulesSystemCreateView.as_view, name="rules_systems_form"),
+    path('rules_systems_list', views.RulesSystemListView.as_view, name='rules_systems_list')
+
 ]
