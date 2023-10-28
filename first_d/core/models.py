@@ -45,7 +45,7 @@ class Character(models.Model):
     age = models.IntegerField(verbose_name="Age", default=0)
     # creator = models.ForeignKey(Creator, on_delete=models.CASCADE, null=True)
     is_player = models.BooleanField(verbose_name="Is a player's character?", default=True)
-    alive = models.BooleanField("Is alive?", default=True)
+    alive = models.BooleanField(verbose_name="Is alive?", default=True)
     bio = models.CharField(max_length=300, verbose_name='Biography', null=True)
     portrait = models.URLField(verbose_name="Portraits' URL", null=True)
     # chronicle = models.ForeignKey(Chronicle, on_delete=models.CASCADE, null=True)
