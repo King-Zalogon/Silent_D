@@ -1,5 +1,6 @@
 from django import forms
 from django.core.exceptions import ValidationError
+from .models import RulesSystem
 
 
 class BlueBackgroundTextInput(forms.TextInput):
@@ -38,3 +39,17 @@ class CharacterResgister(forms.Form):
             raise ValidationError("Can't have a negative exp or level")
         return self.cleaned_data
 
+
+class RulesRegisterModelForm(forms.ModelForm):
+    class Meta:
+        model = RulesSystem
+        fields = '__all__'
+
+    def clean_system_name(self):
+        if len(self.clean_system_name) < 1:
+            raise ValidationError('System Name cannot be empty')
+        return self.clean_system_name
+    
+
+
+        
