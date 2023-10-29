@@ -15,6 +15,7 @@ class Human(models.Model):
 
 
 class Creator(Human):
+    email = models.EmailField(verbose_name="E-mail", unique=True)
     is_player = models.BooleanField(default=True, verbose_name="Is a Player")
     is_gm = models.BooleanField(default=True, verbose_name="Is a Storyteller")
 
