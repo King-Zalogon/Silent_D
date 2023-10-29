@@ -4,6 +4,7 @@ from django.urls import reverse
 from django.contrib import messages
 from django.views.generic.edit import CreateView
 from django.views.generic.list import ListView
+from django.db import IntegrityError
 from datetime import datetime
 from .forms import CharacterResgister, RulesRegisterModelForm
 from .models import Character, RulesSystem
@@ -52,7 +53,7 @@ def contact(request):
         # Then I can validate the data
         if form.is_valid():
             # then we register the data
-            messages.info(request, message="Thank you for your contribution!")
+            
 
             char = Character(
                     name = form.cleaned_data["char_name"],
@@ -66,10 +67,14 @@ def contact(request):
                     bio = form.cleaned_data["bio"],
                     portrait = form.cleaned_data["portrait"]
                     )
-            char.save()
+            try:
+                char.save()
+            except IntegrityError as ie:
+                messages.error(request, message='Character name already in use')
+                return redirect(reverse("index"))    
 
             messages.info(request, message='Character registration was successful')
-
+            messages.info(request, message="Thank you for your contribution!")
             return redirect(reverse("npc_list"))
 
     else:

@@ -38,7 +38,7 @@ class Chronicle(models.Model):
 
 
 class Character(models.Model):
-    name = models.CharField(max_length=15, verbose_name="Name")
+    name = models.CharField(max_length=15, verbose_name="Name", unique=True)
     concept = models.CharField(max_length=30, verbose_name="Concept", default='TBD')
     # rules_system = models.ForeignKey(RulesSystem, on_delete=models.CASCADE, null=True)
     growth = models.IntegerField(default=0, verbose_name="Current level or Exp")
