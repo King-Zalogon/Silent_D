@@ -96,5 +96,5 @@ class RulesSystemListView(ListView):
     context_object_name = "rules_systems_list"
     template_name = 'core/rules_systems_list.html'
     ordering = ['system_name']
-    systems_count = ListView.__sizeof__
+    # systems_count = ListView.__sizeof__
 

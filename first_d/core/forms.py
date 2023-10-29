@@ -46,12 +46,16 @@ class RulesRegisterModelForm(forms.ModelForm):
         fields = '__all__'
 
     def clean_system_name(self):
-        if len(self.clean_system_name) < 1:
+        if len(self.cleaned_data['system_name']) < 1:
             raise ValidationError('System Name cannot be empty')
         # return self.clean_system_name
-        print(self.cleaned_data['system_name'])
+        # print(self.cleaned_data['system_name'])
         return self.cleaned_data['system_name']
     
+    def clean_edition(self):
+        if self.cleaned_data['edition'] < 0:
+            raise ValidationError("The system's version cannot be negative")
 
+        return self.cleaned_data['edition']
 
         

@@ -24,6 +24,7 @@
             <li>
                 {% filter title %}
                     <p>Name: {{system.system_name | upper}}</p>
+                    <p>Edition: {{system.edition}}°</p>
                 {% endfilter %}
             </li>
         {% empty %}
@@ -31,8 +32,8 @@
         {% endfor %}
     </ul>
         
-    {% if npc_count > 0 %}
-        <p> Number of Rules Systems: {{systems_count}}</p>
+    {% if rules_systems_list.count > 0 %}
+        <p> Number of Rules Systems: {{rules_systems_list.count}}</p>
     {% else %}
         <p> No Rules Systems registered </p>
     {% endif %}

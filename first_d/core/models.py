@@ -3,8 +3,8 @@ from django.db import models
 # Create your models here.
 
 class RulesSystem(models.Model):
-    system_name = models.CharField(max_length=10, verbose_name="System", default='TBD', null=True)
-
+    system_name = models.CharField(max_length=20, verbose_name="System", null=True)
+    edition = models.IntegerField(verbose_name='Version or Edition', default=1, null=True)
 
 class Human(models.Model):
     name = models.CharField(max_length=15, verbose_name="Name")
