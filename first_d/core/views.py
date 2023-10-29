@@ -5,7 +5,7 @@ from django.contrib import messages
 from django.views.generic.edit import CreateView
 from django.views.generic.list import ListView
 from datetime import datetime
-from .forms import CharacterResgister
+from .forms import CharacterResgister, RulesRegisterModelForm
 from .models import Character, RulesSystem
 
 
@@ -86,8 +86,9 @@ class RulesSystemCreateView(CreateView):
     model = RulesSystem
     context_object_name = 'rules_systems_form'
     template_name = 'core/rules_systems_form.html'
-    # success_url = 'rules_systems_list'
-    fields = '__all__'
+    success_url = 'rules_systems_list'
+    form_class = RulesRegisterModelForm
+    # fields = '__all__'
 
 
 class RulesSystemListView(ListView):
@@ -95,5 +96,5 @@ class RulesSystemListView(ListView):
     context_object_name = "rules_systems_list"
     template_name = 'core/rules_systems_list.html'
     ordering = ['system_name']
-    systems_count = 0
+    systems_count = ListView.__sizeof__
 

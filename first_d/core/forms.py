@@ -48,7 +48,9 @@ class RulesRegisterModelForm(forms.ModelForm):
     def clean_system_name(self):
         if len(self.clean_system_name) < 1:
             raise ValidationError('System Name cannot be empty')
-        return self.clean_system_name
+        # return self.clean_system_name
+        print(self.cleaned_data['system_name'])
+        return self.cleaned_data['system_name']
     
 
 
