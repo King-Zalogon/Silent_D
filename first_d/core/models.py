@@ -5,17 +5,23 @@ from django.db import models
 class RulesSystem(models.Model):
     system_name = models.CharField(max_length=20, verbose_name="System", null=True)
     edition = models.IntegerField(verbose_name='Version or Edition', default=1, null=True)
+    def __str__(self) -> str:
+        return f"{self.system_name} - {self.edition}°"
+
 
 class Human(models.Model):
     name = models.CharField(max_length=15, verbose_name="Name")
     active = models.BooleanField(default=True, verbose_name="Active")
-
+    
     class Meta:
         abstract = True # I know this might be simplyfied but I trying abstract and proxy models
 
+    def __str__(self) -> str:
+        return self.name
+
 
 class Creator(Human):
-    email = models.EmailField(verbose_name="E-mail", unique=True)
+    email = models.EmailField(verbose_name="E-mail", unique=True, null=True)
     is_player = models.BooleanField(default=True, verbose_name="Is a Player")
     is_gm = models.BooleanField(default=True, verbose_name="Is a Storyteller")
 
@@ -37,6 +43,8 @@ class Chronicle(models.Model):
     # rules_system = models.ForeignKey(RulesSystem, on_delete=models.CASCADE, null=True)
     ended = models.BooleanField(verbose_name="Finished?", default=False)
 
+    def __str__(self) -> str:
+        return self.title
 
 class Character(models.Model):
     name = models.CharField(max_length=15, verbose_name="Name", unique=True)
@@ -51,3 +59,5 @@ class Character(models.Model):
     portrait = models.URLField(verbose_name="Portraits' URL", null=True)
     # chronicle = models.ForeignKey(Chronicle, on_delete=models.CASCADE, null=True)
 
+    def __str__(self) -> str:
+        return self.name
